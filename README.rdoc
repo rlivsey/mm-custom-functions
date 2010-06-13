@@ -1,0 +1,40 @@
+= MongoMapper Custom Functions
+
+Easily add and manage custom functions for your MongoMapper projects
+
+== Usage
+
+Create a directory for your functions, eg. in config/mongo_functions and add your JS files there.
+
+    MongoMapper::CustomFunctions.load_dir = Rails.root + "config/mongo_functions"
+
+Add one file per function, the name of the file will be the function name.
+
+IE config/mongo_functions/even.js will be available as even()
+
+Add an initializer in config/initializers and call any of the following:
+
+    # wipes out system js and loads in all functions
+    MongoMapper::CustomFunctions.reset
+
+    # Overwrites all functions but doesn't delete any
+    MongoMapper::CustomFunctions.reload
+
+    # Load a specific function (overwrites if it already exists)
+    MongoMapper::CustomFunctions.load(:even)
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself in another branch so I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Install
+
+ $ gem install mm-custom-functions
+
+== Copyright
+
+See LICENSE for details.
