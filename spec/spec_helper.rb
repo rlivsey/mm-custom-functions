@@ -7,8 +7,6 @@ gem 'rspec'
 require 'mm-custom-functions'
 require 'spec'
 
-logger = Logger.new("mongo-spec.log")
-MongoMapper.connection = Mongo::Connection.new('127.0.0.1', 27017, :logger => logger)
 MongoMapper.database = 'mm-custom-functions-spec'
 
 MongoMapper::CustomFunctions.load_dir = File.join(File.dirname(__FILE__), 'functions')
